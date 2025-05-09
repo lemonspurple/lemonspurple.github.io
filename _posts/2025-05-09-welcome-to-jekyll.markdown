@@ -1,29 +1,13 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Yet Another Near-Infrared Vein Finder"
 date:   2025-05-09 15:23:04 +0200
-categories: jekyll update
+categories: update projects
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+![Screencap of veins in an arm using a pi camera module, IR filter and lights.](/images/1746804975_image.png)
 
-Jekyll requires blog post files to be named according to the following format:
+![Screencap of veins in an arm using a pi camera module, IR filter and lights.](/images/1746804975_image2.jpg)
 
-`YEAR-MONTH-DAY-title.MARKUP`
+Simple decluttering methods such as contrast adjustments followed by threshold filter shows great results already (A -> B). Inversion and decluttering by gaussian blur and resharpening again (by threshold again i.E.) shows even better results. (C -> D). 
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Using [libcamera](https://github.com/raspberrypi/libcamera) as software for captures has been a bit of a hassle, especially as image-correction happens autonomously. I wouldn't be surprised if this can be adjusted and/or disabled manually, if the documentation is consulted.

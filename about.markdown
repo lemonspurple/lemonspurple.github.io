@@ -3,16 +3,8 @@ layout: page
 title: About
 permalink: /about/
 ---
+![](/images/09052025_pfp.jpg){: style="float: right; max-width: 250px;"}
+It's finally time to talk about me and my achievements.<br />
+On second though, an image will be enough.
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+This site is just a space where I share my interests—things like programming, tinkering with microelectronics, and diving into game development.
