@@ -1,20 +1,15 @@
 ---
 layout: post
-title:  "Finally, We Made It To Development Hell"
-date:   2025-05-15 20:23:04 +0200
-categories: update devblog
+title:  "Yet Another Homebrew Near-Infrared Vein Finder"
+date:   2025-05-09 15:23:04 +0200
+categories: update projects
 ---
-Despite well willing advice I set up a gamedev project. My gut says I shouldn't talk unfinished business, as blogging about it feels like some ascended form of procrastination. Since I was going to write my thoughts anyway somewhere, I figured I'd do it here for easy access.
-{:refdef: style="text-align: center;"}
-![Healthbar](/images/tow_alpha_43b3ae4ec5f380.gif)
-{: refdef}
-Today I've got basic health calculations working. Instead of just moving forward, I'm already nitpicking using GetComponent<> over FindFirstGameObjectByType<>, and still wrestling with classes, their referencing and instanting. Also wondering if I can refactor the health function to ditch the color logic from Update().
+![Screencap of veins in an arm using a pi camera module, IR filter and lights.](/images/1746804975_image.png)
 
-Hm.
-Next are object pools. But first, the enemies need some brains. Not sure yet how the spawner will tick, I’m thinking enemies spawning in clockwise waves around the tower. Maybe a rotating cylinder with the tower as the pivot as a spawn area, so I can reuse the script. Then comes a damage function, which means I’ll need modifiable enemy instances. Graphics is something I'll be tackling as late as possible or when my brain is running on empty.
+![Screencap of veins in an arm using a pi camera module, IR filter and lights.](/images/1746804975_image2.jpg)
 
-{:refdef: style="text-align: center;"}
-![Healthbar](/images/tow_alpha_4b4ce8cc16648a.gif)
-{: refdef}
+Been tinkering with a project that involves a NoIR camera and while I was at it I figured I might as well check out how my veins look. They become quite visible because hemoglobin absorbs IR light differently than nearby tissue. Simple post processing / decluttering methods such as contrast adjustments followed by threshold filter shows great results already (A -> B). Inversion and decluttering by gaussian blur and resharpening again (by threshold again i.E.) shows even better results. (B -> C -> D). 
 
-The course I've been doing in preperation lead me through setting up a BFS pathfinding algorythm manually. If this might run more cost efficient than a NavMesh - which seems way easier to use - is something we will never find out.
+Capturing images with [libcamera](https://github.com/raspberrypi/libcamera) has been... an adventure. It likes to do its own thing with automatic image correction. I’m guessing there’s a way to turn that off, probably pointed out somewhere in the documentation I didn’t read.
+
+About the setup: Was using an RPi, NoIR camera, 850–940 nm IR pass filter, and IR lighting. Dark rooms minimizes light interference and a helping hand (tool) will save a lot of trouble.
