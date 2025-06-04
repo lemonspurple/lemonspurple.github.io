@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Finally, We Made It To Development Hell"
+title:  "(DevBlog) Finally, We Made It To Development Hell"
 date:   2025-05-15 20:23:04 +0200
 categories: update devblog
 ---

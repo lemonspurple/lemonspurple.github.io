@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Heatmap Generator</title>
+  <style>
+    :root {
+      --nord-bg:      #2f2d34;
+      --nord-bg2:     #3a373f;
+      --nord-fg:      #d0cfd3;
+      --nord-fg2:     #ebeaed;
+      --nord-accent:  #9c8fb5;
+      --nord-border:  #5a5562;
+      --nord-yellow:  #e0d761;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+      background: var(--nord-bg);
+      color: var(--nord-fg);
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: var(--nord-accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--nord-bg);
+      position: relative;
+    }
+    #grid-container {
+      flex: 1;
+      overflow: auto;
+      background: var(--nord-bg2);
+      position: relative;
+    }
+    #grid {
+      display: grid;
+      width: 100%;
+      transition: filter 0.3s ease;
+      position: relative;
+      z-index: 0;
+    }
+    .cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      user-select: none;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: background-color 0.3s ease;
+      color: var(--nord-fg2);
+    }
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 10px;
+      border-top: 1px solid var(--nord-border);
+      background: var(--nord-bg2);
+      position: relative;
+      z-index: 1;
+      color: var(--nord-fg);
+    }
+    input[type="number"], input[type="range"], select {
+      vertical-align: middle;
+      background: var(--nord-bg);
+      color: var(--nord-fg);
+      border: 1px solid var(--nord-border);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    option {
+      background: var(--nord-bg2);
+      color: var(--nord-fg);
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    button {
+      background: var(--nord-accent);
+      color: var(--nord-bg);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #7e73a2;
+    }
+    #colsLabel {
+      width: 280px;
+    }
+    #footer {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-size: 0.9em;
+      color: var(--nord-fg);
+    }
+    #refreshButton {
+      background: var(--nord-yellow);
+      color: var(--nord-bg2);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 2;
+    }
+    #refreshButton:hover {
+      background: #d0cd64;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="grid-container">
+      <div id="grid"></div>
+      <div id="footer">
+        <a href="https://lemonspurple.github.io" target="_blank">LemonsPurple</a>
+      </div>
+    </div>
+    <div id="controls">
+      <select id="modeSelect">
+        <option value="prime">Primenumbers</option>
+        <option value="fib">Fibonacci</option>
+        <option value="collatz-steps">Collatz-Stoppzeit</option>
+        <option value="mobius">Möbius</option>
+        <option value="pascal-mod2">Pascal-Mod-2</option>
+        <option value="gaussian-prime">Gausian Primes</option>
+        <option value="LP1">LP1 (XOR)</option>
+        <option value="LP3">LP2  </option>
+        <option value="LP4">LP3  </option>
+      </select>
+      <label>
+        <input type="number" id="amountInput" value="1000" min="100" step="100" />
+        Numbers
+      </label>
+      <label id="colsLabel">
+        Rows:
+        <input type="range" id="colsSlider" min="10" max="500" value="100" />
+      </label>
+      <label>
+        <input type="checkbox" id="showTextCheckbox" checked />
+        Show Numbers
+      </label>
+      <label>
+        <input type="checkbox" id="softGradientCheckbox" />
+        Blur
+      </label>
+      <label>
+        Blur-Strength:
+        <input type="range" id="blurStrengthSlider" min="0" max="10" step="0.1" value="3" />
+        <span id="blurValue">3</span> px
+      </label>
+      <select id="colorSchemeSelect">
+        <option value="green-yellow-red">GYR</option>
+        <option value="isle-of-the-dead">Isle of the Dead</option>
+        <option value="mona-lisa">Mona Lisa</option>
+        <option value="starry-night">Starry Night</option>
+        <option value="the-scream">The Scream</option>
+        <option value="water-lilies">Water Lilies</option>
+        <option value="guernica">Guernica</option>
+        <option value="the-kiss">The Kiss</option>
+        <option value="american-gothic">American Gothic</option>
+        <option value="girl-with-a-pearl">Girl with a Pearl Earring</option>
+      </select>
+      <button id="refreshButton">Refresh</button>
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById("grid");
+    const gridContainer = document.getElementById("grid-container");
+    const amountInput = document.getElementById("amountInput");
+    const colsSlider = document.getElementById("colsSlider");
+    const showTextCheckbox = document.getElementById("showTextCheckbox");
+    const softGradientCheckbox = document.getElementById("softGradientCheckbox");
+    const blurStrengthSlider = document.getElementById("blurStrengthSlider");
+    const blurValueLabel = document.getElementById("blurValue");
+    const colorSchemeSelect = document.getElementById("colorSchemeSelect");
+    const modeSelect = document.getElementById("modeSelect");
+    const refreshButton = document.getElementById("refreshButton");
+
+    let lastAmount        = parseInt(amountInput.value, 10) || 1000;
+    let currentMode       = modeSelect.value;
+    let startNumberPrime  = 2;
+    let startNumberFib    = 1;
+    let startNumberOther  = 1;
+
+    const colorSchemes = {
+      "green-yellow-red": [
+        "#57d064", "#84c73b", "#ccff00", "#ffcc00", "#ff9900",
+        "#ff7700", "#ff5500", "#ff3300", "#ff1100", "#ff0000", "#990000"
+      ],
+      "isle-of-the-dead": [
+        "#0b1c2c", "#1e2d3a", "#2f3e4d", "#3c4a5a", "#5a6a7a",
+        "#7a8a9a", "#9aaab0", "#b0b8c0", "#d0d8e0", "#ffffff", "#641e16"
+      ],
+      "mona-lisa": [
+        "#3b3026", "#5a4733", "#7b6649", "#9e8862", "#c0aa7c",
+        "#ddc496", "#f0e0b3", "#fdf3d0", "#fff8e1", "#ac7f2d", "#38220f"
+      ],
+      "starry-night": [
+        "#0b3d91", "#1049a3", "#1a53ff", "#366ffc", "#5c8eff",
+        "#87aefc", "#b3cbff", "#e0eaff", "#fedc3d", "#f9a825", "#ffffff"
+      ],
+      "the-scream": [
+        "#e94b3c", "#f0642e", "#f27121", "#f7a33d", "#f7db4f",
+        "#a2d5f2", "#0b3d91", "#34495e", "#1c1c1c", "#d35400", "#ffffff"
+      ],
+      "water-lilies": [
+        "#263238", "#37474f", "#455a64", "#546e7a", "#607d8b",
+        "#84a98c", "#cad2c5", "#dbe8d4", "#fefae0", "#f5f5f5", "#ffffff"
+      ],
+      "guernica": [
+        "#111111", "#2e2e2e", "#3a3a3a", "#5a5a5a", "#777777",
+        "#999999", "#bbbbbb", "#cccccc", "#dddddd", "#eeeeee", "#ffffff"
+      ],
+      "the-kiss": [
+        "#763626", "#a14d4d", "#bd8a49", "#d4b483", "#f1e5b9",
+        "#f9dc5c", "#fef3a0", "#fffad2", "#ffffff", "#d8b35d", "#9c734b"
+      ],
+      "american-gothic": [
+        "#2a3642", "#3c4a5a", "#5e7388", "#748a9d", "#aab6c1",
+        "#c5d3df", "#d4dbdf", "#f3f6f8", "#ffffff", "#bcd3e5", "#8497a9"
+      ],
+      "girl-with-a-pearl": [
+        "#3b2f2f", "#5c504d", "#8a7e7e", "#a09087", "#bfb1a8",
+        "#d2c7b7", "#e9e1d7", "#f5f0e8", "#ffffff", "#a67c52", "#6f5f57"
+      ]
+    };
+
+    function hexToRgb(hex) {
+      hex = hex.replace(/^#/, "");
+      const bigint = parseInt(hex, 16);
+      return [
+        (bigint >> 16) & 255,
+        (bigint >> 8) & 255,
+        bigint & 255
+      ];
+    }
+
+    function rgbToHex(r, g, b) {
+      const componentToHex = (c) => {
+        const h = c.toString(16);
+        return h.length === 1 ? "0" + h : h;
+      };
+      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+
+    function getHeatColor(count, isSpecial, schemeColors) {
+      if (isSpecial) {
+        return schemeColors[schemeColors.length - 1];
+      }
+      const maxCount = 8;
+      const colorSteps = schemeColors.length;
+      const ratio = count / maxCount;
+      const pos = ratio * (colorSteps - 1);
+      const i0 = Math.floor(pos);
+      const i1 = Math.min(i0 + 1, colorSteps - 1);
+      const t = pos - i0;
+      const c0 = hexToRgb(schemeColors[i0]);
+      const c1 = hexToRgb(schemeColors[i1]);
+      const r = Math.round(c0[0] + (c1[0] - c0[0]) * t);
+      const g = Math.round(c0[1] + (c1[1] - c0[1]) * t);
+      const b = Math.round(c0[2] + (c1[2] - c0[2]) * t);
+      return rgbToHex(r, g, b);
+    }
+
+    function isPrime(n) {
+      if (n <= 1) return false;
+      if (n === 2) return true;
+      if (n % 2 === 0) return false;
+      for (let i = 3; i <= Math.sqrt(n); i += 2) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    function generateFibonacciSet(max) {
+      const fibs = new Set();
+      let a = 0, b = 1;
+      while (a <= max) {
+        fibs.add(a);
+        [a, b] = [b, a + b];
+      }
+      return fibs;
+    }
+
+    function collatzSteps(n) {
+      let steps = 0;
+      let x = n;
+      while (x !== 1 && steps < 10000) {
+        if (x % 2 === 0) {
+          x = x / 2;
+        } else {
+          x = 3 * x + 1;
+        }
+        steps++;
+      }
+      return steps;
+    }
+
+    function mobius(n) {
+      if (n === 1) return 1;
+      let cnt = 0;
+      let temp = n;
+      for (let p = 2; p * p <= temp; p++) {
+        if (temp % p === 0) {
+          let power = 0;
+          while (temp % p === 0) {
+            temp /= p;
+            power++;
+            if (power > 1) return 0;
+          }
+          cnt++;
+        }
+      }
+      if (temp > 1) cnt++;
+      return cnt % 2 === 0 ? 1 : -1;
+    }
+
+    function pascalEntryMod2(n, k) {
+      return ((n & k) === k) ? 1 : 0;
+    }
+
+    function isGaussianPrime(a, b) {
+      if (a === 0 && b === 0) return false;
+      if (b === 0) {
+        return isPrime(Math.abs(a)) && (Math.abs(a) % 4 === 3);
+      }
+      if (a === 0) {
+        return isPrime(Math.abs(b)) && (Math.abs(b) % 4 === 3);
+      }
+      const norm = a * a + b * b;
+      return isPrime(norm);
+    }
+
+    function countSpecialNeighbors(gridData, y, x, cols, rows) {
+      const deltas = [-1, 0, 1];
+      let count = 0;
+      for (let dy of deltas) {
+        for (let dx of deltas) {
+          if (dx === 0 && dy === 0) continue;
+          const ny = y + dy, nx = x + dx;
+          if (ny >= 0 && ny < rows && nx >= 0 && nx < cols) {
+            if (gridData[ny][nx]?.isSpecial) count++;
+          }
+        }
+      }
+      return count;
+    }
+
+    function bitCount(n) {
+      let count = 0;
+      while (n) {
+        count += n & 1;
+        n >>= 1;
+      }
+      return count;
+    }
+
+    function generateNoiseGoldenSpiralPositions(n, cols, rows) {
+      const positions = [];
+      const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+      for (let i = 1; i <= n; i++) {
+        const r = Math.sqrt(i);
+        const theta = i * goldenAngle;
+        const noiseR = r + 0.5 * Math.sin(i);
+        const noiseTheta = theta + 0.5 * Math.cos(i);
+        const centerX = cols / 2;
+        const centerY = rows / 2;
+        const xf = centerX + noiseR * Math.cos(noiseTheta);
+        const yf = centerY + noiseR * Math.sin(noiseTheta);
+        positions.push([Math.round(xf), Math.round(yf)]);
+      }
+      return positions;
+    }
+
+    function generateFloralSpiralPositions(n, cols, rows) {
+      const positions = [];
+      const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+      for (let i = 1; i <= n; i++) {
+        const baseR = Math.sqrt(i);
+        const petal = 1 + 0.1 * Math.sin(6 * i);
+        const r = baseR * petal;
+        const theta = i * goldenAngle;
+        const centerX = cols / 2;
+        const centerY = rows / 2;
+        const xf = centerX + r * Math.cos(theta);
+        const yf = centerY + r * Math.sin(theta);
+        positions.push([Math.round(xf), Math.round(yf)]);
+      }
+      return positions;
+    }
+
+    function generateGrid(amount, startFrom, mode) {
+      const schemeColors = colorSchemes[colorSchemeSelect.value] || colorSchemes["starry-night"];
+      grid.innerHTML = "";
+      let gridData = [];
+      let rows = Math.ceil(amount / parseInt(colsSlider.value, 10));
+      let cols = parseInt(colsSlider.value, 10);
+      grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+      for (let y = 0; y < rows; y++) {
+        let row = [];
+        for (let x = 0; x < cols; x++) {
+          row.push(null);
+        }
+        gridData.push(row);
+      }
+      if (mode === "LP1") {
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            if (y * cols + x >= amount) break;
+            const val = startFrom + y * cols + x;
+            const bits = bitCount(x ^ y);
+            gridData[y][x] = { value: val, isSpecial: false, metric: bits };
+          }
+        }
+      } else if (mode === "LP3") {
+        const positions = generateNoiseGoldenSpiralPositions(amount, cols, rows);
+        for (let i = 0; i < amount; i++) {
+          const [xi, yi] = positions[i];
+          if (yi >= 0 && yi < rows && xi >= 0 && xi < cols) {
+            gridData[yi][xi] = { value: startFrom + i, isSpecial: true };
+          }
+        }
+      } else if (mode === "LP4") {
+        const positions = generateFloralSpiralPositions(amount, cols, rows);
+        for (let i = 0; i < amount; i++) {
+          const [xi, yi] = positions[i];
+          if (yi >= 0 && yi < rows && xi >= 0 && xi < cols) {
+            gridData[yi][xi] = { value: startFrom + i, isSpecial: true };
+          }
+        }
+      } else {
+        let fibSet = (mode === "fib") ? generateFibonacciSet(startFrom + amount + 100) : null;
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            if (y * cols + x >= amount) break;
+            const val = startFrom + y * cols + x;
+            let isSpecial = false;
+            let extraData = null;
+            switch (mode) {
+              case "prime":
+                isSpecial = isPrime(val);
+                gridData[y][x] = { value: val, isSpecial };
+                break;
+              case "fib":
+                isSpecial = fibSet.has(val);
+                gridData[y][x] = { value: val, isSpecial };
+                break;
+              case "collatz-steps":
+                const steps = collatzSteps(val);
+                extraData = steps;
+                gridData[y][x] = { value: val, isSpecial: false, metric: steps };
+                break;
+              case "mobius":
+                const m = mobius(val);
+                extraData = m;
+                gridData[y][x] = { value: val, isSpecial: false, metric: m };
+                break;
+              case "pascal-mod2":
+                if (x <= y) {
+                  const pm = pascalEntryMod2(y, x);
+                  gridData[y][x] = { value: val, isSpecial: false, metric: pm };
+                } else {
+                  gridData[y][x] = null;
+                }
+                break;
+              case "gaussian-prime":
+                const centerX = Math.floor(cols / 2);
+                const centerY = Math.floor(rows / 2);
+                const a = x - centerX;
+                const b = y - centerY;
+                isSpecial = isGaussianPrime(a, b);
+                gridData[y][x] = { value: val, isSpecial, coord: [a, b] };
+                break;
+              default:
+                gridData[y][x] = { value: val, isSpecial: false };
+                break;
+            }
+          }
+        }
+      }
+      const showText = showTextCheckbox.checked;
+      const cellSize = gridContainer.clientWidth / (cols || 1);
+      const fontSize = Math.max(6, Math.min(14, cellSize * 0.5));
+      for (let y = 0; y < gridData.length; y++) {
+        for (let x = 0; x < (gridData[y]?.length || 0); x++) {
+          const cellData = gridData[y][x];
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          if (cellData) {
+            let bgColor = "transparent";
+            switch (currentMode) {
+              case "prime":
+              case "fib":
+                const spCount = countSpecialNeighbors(gridData, y, x, cols, gridData.length);
+                bgColor = getHeatColor(spCount, cellData.isSpecial, schemeColors);
+                break;
+              case "collatz-steps":
+                const steps = cellData.metric;
+                const clipped = Math.min(steps, 8);
+                bgColor = getHeatColor(clipped, false, schemeColors);
+                break;
+              case "mobius":
+                const µ = cellData.metric;
+                let cnt;
+                if (µ === 1) cnt = 0;
+                else if (µ === -1) cnt = 8;
+                else cnt = 4;
+                bgColor = getHeatColor(cnt, false, schemeColors);
+                break;
+              case "pascal-mod2":
+                const pm2 = cellData.metric;
+                if (pm2 === 1) {
+                  bgColor = schemeColors[schemeColors.length - 1];
+                } else {
+                  bgColor = schemeColors[0];
+                }
+                break;
+              case "gaussian-prime":
+                const spG = countSpecialNeighbors(gridData, y, x, cols, gridData.length);
+                bgColor = getHeatColor(spG, cellData.isSpecial, schemeColors);
+                break;
+              case "LP1":
+                const bits = cellData.metric;
+                const clippedBits = Math.min(bits, 8);
+                bgColor = getHeatColor(clippedBits, false, schemeColors);
+                break;
+              case "LP3":
+                if (cellData.isSpecial) {
+                  const spF = countSpecialNeighbors(gridData, y, x, cols, gridData.length);
+                  bgColor = getHeatColor(spF, false, schemeColors);
+                } else {
+                  bgColor = "transparent";
+                }
+                break;
+              case "LP4":
+                if (cellData.isSpecial) {
+                  const spF = countSpecialNeighbors(gridData, y, x, cols, gridData.length);
+                  bgColor = getHeatColor(spF, false, schemeColors);
+                } else {
+                  bgColor = "transparent";
+                }
+                break;
+              default:
+                bgColor = "transparent";
+                break;
+            }
+            cell.style.backgroundColor = bgColor;
+            cell.textContent = showText && cellData.value !== null ? cellData.value : "";
+            cell.style.fontSize = fontSize + "px";
+          } else {
+            cell.style.backgroundColor = "transparent";
+          }
+          grid.appendChild(cell);
+        }
+      }
+      updateBlur();
+      if (currentMode === "prime") {
+        return startNumberPrime + amount;
+      } else if (currentMode === "fib") {
+        return startNumberFib + amount;
+      } else {
+        return startNumberOther + amount;
+      }
+    }
+
+    function updateBlur() {
+      grid.style.filter = (softGradientCheckbox.checked && parseFloat(blurStrengthSlider.value) > 0)
+        ? `blur(${blurStrengthSlider.value}px)`
+        : 'none';
+    }
+
+    function generateNext() {
+      const amount = parseInt(amountInput.value, 10) || 1000;
+      lastAmount = amount;
+      if (currentMode === "prime") {
+        startNumberPrime = generateGrid(amount, startNumberPrime, currentMode);
+      } else if (currentMode === "fib") {
+        startNumberFib = generateGrid(amount, startNumberFib, currentMode);
+      } else {
+        startNumberOther = generateGrid(amount, startNumberOther, currentMode);
+      }
+    }
+
+    function refresh() {
+      const amount = parseInt(amountInput.value, 10) || 1000;
+      if (currentMode === "prime") {
+        generateGrid(amount, startNumberPrime, currentMode);
+      } else if (currentMode === "fib") {
+        generateGrid(amount, startNumberFib, currentMode);
+      } else {
+        generateGrid(amount, startNumberOther, currentMode);
+      }
+    }
+
+    modeSelect.addEventListener("change", () => {
+      currentMode = modeSelect.value;
+      if (["prime", "fib"].includes(currentMode)) {
+      } else {
+        startNumberOther = 1;
+      }
+      generateNext();
+    });
+    amountInput.addEventListener("change", () => {
+      if (amountInput.value < 100) amountInput.value = 100;
+      refresh();
+    });
+    colsSlider.addEventListener("input", refresh);
+    showTextCheckbox.addEventListener("change", refresh);
+    softGradientCheckbox.addEventListener("change", updateBlur);
+    blurStrengthSlider.addEventListener("input", () => {
+      blurValueLabel.textContent = blurStrengthSlider.value;
+      updateBlur();
+    });
+    colorSchemeSelect.addEventListener("change", refresh);
+    refreshButton.addEventListener("click", refresh);
+
+    window.addEventListener("load", () => {
+      currentMode = "prime";
+      modeSelect.value = "prime";
+      generateGrid(lastAmount, startNumberPrime, currentMode);
+    });
+  </script>
+</body>
+</html>

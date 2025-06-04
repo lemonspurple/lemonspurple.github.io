@@ -22,9 +22,7 @@ title: LMPL
 email: leozwindrecht at tuta.io
 description: >- # this means to ignore newlines until "baseurl:"
   This blog is where I gather and store,  
-  my projects, ideas, and so much more,  
-  a place to track what I've done,  
-  and reflect on progress, one by one.
+  my projects, ideas, and so much more.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lemonspurple.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  lemonspurple
