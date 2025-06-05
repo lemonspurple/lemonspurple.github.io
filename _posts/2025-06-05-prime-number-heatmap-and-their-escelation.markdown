@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Prime Number Heatmaps And Other Escelations"
+title:  "Prime Number Heatmaps And Their Escelation"
 date:   2025-06-05 01:00:04 +0200
 categories: update 
 ---
