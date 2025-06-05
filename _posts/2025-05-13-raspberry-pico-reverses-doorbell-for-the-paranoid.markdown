@@ -7,7 +7,7 @@ categories: update projects
 Have you ever locked your door, only to turn back just to check if it’s really locked? I’ve done that dance a lot. Many would probably agree that the healthiest thing to do is to simply not double-check at all. After all, I’ve never actually forgotten to lock the door and my belongings are insured.
 Additionally, by repeatedly choosing not to check, I can rewire my brain over time and unlearn this habit.
 
-But what if there’s a simpler fix—assuming you don’t mind something a little neurotic? In theory, I could create a small ritual to do right after locking the door, something that would help me remember I didn’t forget. Best of all, I’d only need a microcontroller and a few LEDs.
+But what if there’s a simpler fix, assuming you don’t mind something a little neurotic? In theory, I could create a small ritual to do right after locking the door, something that would help me remember I didn’t forget. Best of all, I’d only need a microcontroller and a few LEDs.
 
 ![Screencap of veins in an arm using a pi camera module, IR filter and lights.](/images/screenshot202505131428.png)
 
