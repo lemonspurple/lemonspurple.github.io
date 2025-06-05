@@ -143,12 +143,12 @@
         <option value="prime">Primenumbers</option>
         <option value="fib">Fibonacci</option>
         <option value="collatz-steps">Collatz-Stoppzeit</option>
-        <option value="mobius">Möbius</option>
+        <option value="mobius">MÃ¶bius</option>
         <option value="pascal-mod2">Pascal-Mod-2</option>
-        <option value="gaussian-prime">Gausian Primes</option>
+        <option value="gaussian-prime">Gaussian Primes</option>
         <option value="LP1">LP1 (XOR)</option>
-        <option value="LP3">LP2  </option>
-        <option value="LP4">LP3  </option>
+        <option value="LP3">LP2</option>
+        <option value="LP4">LP3</option>
       </select>
       <label>
         <input type="number" id="amountInput" value="1000" min="100" step="100" />
@@ -182,6 +182,10 @@
         <option value="the-kiss">The Kiss</option>
         <option value="american-gothic">American Gothic</option>
         <option value="girl-with-a-pearl">Girl with a Pearl Earring</option>
+        <option value="persistence-of-memory">Persistence of Memory</option>
+        <option value="birth-of-venus">Birth of Venus</option>
+        <option value="night-watch">The Night Watch</option>
+        <option value="ophelia">Ophelia</option>
       </select>
       <button id="refreshButton">Refresh</button>
     </div>
@@ -228,8 +232,8 @@
         "#a2d5f2", "#0b3d91", "#34495e", "#1c1c1c", "#d35400", "#ffffff"
       ],
       "water-lilies": [
-        "#263238", "#37474f", "#455a64", "#546e7a", "#607d8b",
-        "#84a98c", "#cad2c5", "#dbe8d4", "#fefae0", "#f5f5f5", "#ffffff"
+        "#1f3e3b", "#2e5c59", "#3f7c78", "#519a97", "#67b8b5",
+        "#83d4d3", "#a1eceb", "#c3fafa", "#e5fcfc", "#f5fefa", "#ffffff"
       ],
       "guernica": [
         "#111111", "#2e2e2e", "#3a3a3a", "#5a5a5a", "#777777",
@@ -239,13 +243,37 @@
         "#763626", "#a14d4d", "#bd8a49", "#d4b483", "#f1e5b9",
         "#f9dc5c", "#fef3a0", "#fffad2", "#ffffff", "#d8b35d", "#9c734b"
       ],
+      "guernica": [
+        "#111111", "#2e2e2e", "#3a3a3a", "#5a5a5a", "#777777",
+        "#999999", "#bbbbbb", "#cccccc", "#dddddd", "#eeeeee", "#ffffff"
+      ],
+      "the-kiss": [
+        "#C06A19", "#CB843E", "#4E2B1F", "#808F9A", "#423F1E",
+        "#774B40", "#DFC7BD", "#A94E29", "#567022", "#37444B", "#8C5A3C"
+      ],
       "american-gothic": [
         "#2a3642", "#3c4a5a", "#5e7388", "#748a9d", "#aab6c1",
-        "#c5d3df", "#d4dbdf", "#f3f6f8", "#ffffff", "#bcd3e5", "#8497a9"
+        "#c5d3df", "#dfe8f3", "#f3f6f8", "#ffffff", "#c1d3e5", "#8497a9"
       ],
       "girl-with-a-pearl": [
-        "#3b2f2f", "#5c504d", "#8a7e7e", "#a09087", "#bfb1a8",
-        "#d2c7b7", "#e9e1d7", "#f5f0e8", "#ffffff", "#a67c52", "#6f5f57"
+        "#3b302f", "#554944", "#7c6b68", "#9e8f8b", "#c0b1a9",
+        "#d7c7b5", "#e9e1d7", "#f5f0e8", "#faf9f9", "#ffffff", "#6f5f57"
+      ],
+      "persistence-of-memory": [
+        "#2e1600", "#4a2b06", "#714918", "#a06a2c", "#c99b54",
+        "#f2d98c", "#f8e7b8", "#fbedcc", "#fdf9e8", "#fffcf6", "#5b3d1f"
+      ],
+      "birth-of-venus": [
+        "#2f3a4a", "#5b6283", "#7d79a8", "#a99dcf", "#ccd0e6",
+        "#e7e7f2", "#f7f7fb", "#fcf5ea", "#faf0dd", "#fdf8f4", "#8a634f"
+      ],
+      "night-watch": [
+        "#806029", "#592F19", "#382814", "#A3752A", "#624018",
+        "#190E01", "#794A18", "#0E0B06", "#B9A670", "#AC4515", "#4F3F2F"
+      ],
+      "ophelia": [
+        "#665743", "#FEFEFE", "#7D754D", "#2D1F10", "#31361E",
+        "#433114", "#2E441E", "#2C241E", "#666F21", "#627042", "#7A5E4C"
       ]
     };
 
@@ -524,10 +552,10 @@
                 bgColor = getHeatColor(clipped, false, schemeColors);
                 break;
               case "mobius":
-                const µ = cellData.metric;
+                const Âµ = cellData.metric;
                 let cnt;
-                if (µ === 1) cnt = 0;
-                else if (µ === -1) cnt = 8;
+                if (Âµ === 1) cnt = 0;
+                else if (Âµ === -1) cnt = 8;
                 else cnt = 4;
                 bgColor = getHeatColor(cnt, false, schemeColors);
                 break;
@@ -610,7 +638,7 @@
       if (currentMode === "prime") {
         generateGrid(amount, startNumberPrime, currentMode);
       } else if (currentMode === "fib") {
-        generateGrid(amount, startNumberFib, currentMode);
+        generateGrid(amount, 1, "fib");
       } else {
         generateGrid(amount, startNumberOther, currentMode);
       }
