@@ -60,5 +60,3 @@ while True:
     # powersaving
     lightsleep(1800)
 {% endhighlight %}
-
-If you wanna use this code, mind the GPIO pins of your device or change them in the code.
