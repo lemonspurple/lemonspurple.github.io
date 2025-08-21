@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Illusion of Thinking & Gamescom 25"
-date:   2025-08-22 00:10:04 +0200
+date:   2025-08-21 00:10:04 +0200
 categories: update AI
 ---
 
