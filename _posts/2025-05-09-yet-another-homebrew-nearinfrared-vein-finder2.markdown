@@ -2,7 +2,7 @@
 layout: post
 title:  "Yet Another Homebrew Near-Infrared Vein Finder"
 date:   2025-05-09 15:23:04 +0200
-categories: update projects
+category: [test]
 ---
 ![Screencap of veins in an arm using a pi camera module, IR filter and lights.](/images/1746804975_image.png)
 
