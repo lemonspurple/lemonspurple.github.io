@@ -326,6 +326,6 @@ footer {
 .post,
 .post-content,
 .page-content {
-	max-width: 800px;
-	padding: 0 0;
+	max-width: 820px;
+	padding: 0 15px;
 }
