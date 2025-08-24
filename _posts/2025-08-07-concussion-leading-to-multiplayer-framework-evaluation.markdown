@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "(DevBlog) Concussion leading to Multiplayer Framework Evaluation"
+title:  "(DevBlog) Concussion Leading to Multiplayer Framework Evaluation"
 date:   2025-08-07 02:23:04 +0200
 categories: update projects
 ---
