@@ -15,7 +15,7 @@
 	<ul class="nav">
       <li class="nav-title">Pages</li>
 	  <li>
-	  	<a class="nav-item" href="/">Articles</a>
+	  	<a class="nav-item" href="/">📌 Articles</a>
 	  </li>
 	  {% assign pages_list = site.pages %}
 	  {% for node in pages_list %}
@@ -23,12 +23,12 @@
 	      {% if node.layout == "page" %}
 	        <li>
 	        	<a class="nav-item" href="{{ node.url }}">
-	            	{{ node.title }}
+	            	ℹ️ {{ node.title }}
 	            </a>
 	        </li>
-			<li><a class="nav-item" href="https://github.com/lemonspurple">GitHub</a></li>
-			<li><a class="nav-item" href="https://www.flickr.com/photos/203446414@N06/">Flickr</a></li>
-			<li><a class="nav-item" href="mailto:leozwindrecht@outlook.com">E-Mail</a></li>
+			<li><a class="nav-item" href="https://github.com/lemonspurple">🤖 GitHub</a></li>
+			<li><a class="nav-item" href="https://www.flickr.com/photos/203446414@N06/">📷 Flickr</a></li>
+			<li><a class="nav-item" href="mailto:leozwindrecht@outlook.com">📨 E-Mail</a></li>
 			
 	      {% endif %}
 	    {% endif %}
