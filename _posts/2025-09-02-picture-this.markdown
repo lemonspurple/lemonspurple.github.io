@@ -5,7 +5,7 @@ date:   2025-09-02 02:10:04 +0200
 categories: update Photography
 ---
 
-Not too long ago I finally had the time to scan my analog pictures and I also created a Flickr account for that purpose. A good friend of mine reminded me to mention that I used the best equipment, namely the none-of-your-business camera with the who-cares lens.
+Not too long ago I finally had the time to scan my analog pictures and I also created a [Flickr account](https://www.flickr.com/photos/203446414@N06/) for that purpose. A good friend of mine reminded me to mention that I used the best equipment, namely the none-of-your-business camera with the who-cares lens.
 
 ![A random picture of the Rhine.](https://live.staticflickr.com/65535/54753431580_b47fe7c45c_b.jpg)
 
