@@ -4,7 +4,7 @@ title:  "(DevBlog) Buying Copium In The Unity Asset Store"
 date:   2025-09-13 02:10:04 +0200
 categories: update devblog
 ---
-A very buggy, but rudimentary proof of concept of a lobby is working. [This might sound a bit like a déjà vu](https://lemonspurple.github.io/update/projects/2025/08/07/concussion-leading-to-multiplayer-framework-evaluation.html), but the last iteration had so many different code components flying around that it was becoming increasingly difficult to work on.
+A very buggy, but rudimentary proof of concept of a lobby is working. [This might sound a bit like a déjà vu,](https://lemonspurple.github.io/update/projects/2025/08/07/concussion-leading-to-multiplayer-framework-evaluation.html) but the last iteration had so many different code components flying around that it was becoming increasingly difficult to work on.
 On Friday I tried to essentially plug this system into a session browser, which broke the project in so many fascinating ways that I had to roll back the entire progress a few hours (thanks Git). Somehow, however, even after rebuilding, some changes in the scene data weren't backed up and I had to revert my changes by hand (thanks Git), which led me to the idea of setting up a "new project" and to just do a vertical slice as a proof of concept that wouldn't contaminate the rest of the game.
 
 ![The session browser](/images/Screenshot_20250913_112611.png)
