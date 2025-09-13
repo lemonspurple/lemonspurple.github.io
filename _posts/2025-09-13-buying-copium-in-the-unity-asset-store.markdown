@@ -5,15 +5,15 @@ date:   2025-09-13 02:10:04 +0200
 categories: update devblog
 ---
 A very buggy, but rudimentary proof of concept of a lobby is working. [This might sound a bit like a déjà vu](https://lemonspurple.github.io/update/projects/2025/08/07/concussion-leading-to-multiplayer-framework-evaluation.html), but the last iteration had so many different code components flying around that it was becoming increasingly difficult to work on.
-On Friday I tried to essentially plug this system into a session browser, which broke the project in so many fascinating ways that I had to roll back the entire progress a few hours (thanks Git). Somehow, however, even after rebuilding, some changes in the scene data weren't backed up and I had to revert my changes by hand (thanks Git), which led me to the idea of setting up a "new project" and just do a vertical slice as a proof of concept that wouldn't contaminate the rest of the game.
+On Friday I tried to essentially plug this system into a session browser, which broke the project in so many fascinating ways that I had to roll back the entire progress a few hours (thanks Git). Somehow, however, even after rebuilding, some changes in the scene data weren't backed up and I had to revert my changes by hand (thanks Git), which led me to the idea of setting up a "new project" and to just do a vertical slice as a proof of concept that wouldn't contaminate the rest of the game.
 
 ![The session browser](/images/Screenshot_20250913_112611.png)
 
-Well, now we can basically join and host a room in three different regions. When I do so, the list is auto-updated and shows rooms available rooms. On top of that (or on bottom) there are also filters that I can use to sort by name and region. Although the list updates very quickly, I added a refresh button, so you have something to do while the person who said is going to host is in the bathroom.
+Well, now we can basically join and host a room in three different regions. When I do so, the list is auto-updated and shows available rooms. On top of that (or on bottom) there are also filters that I can use to sort by name and region. Although the list updates very quickly, I added a refresh button, so that you have something to do while the person who said is going to host is in the bathroom.
 
 My favorite part was when ChatGPT suggested that I try the Unity Multiplayer Play Mode™. 
-When testing, you usually build your game and upload it to itch.io to make sure that everything is working. This takes a minute or two every time and is a bit repetitive and annoying. So, instead, this handy little package promises to allow multiple instances of the game, making these steps redundant.
-After importing this tool, the prototype became immediately unusable, because importing it disables http connections entirely in a Unity user config. Imagine my joy upon discovering that out after removing the package didn't fix it at first.
+When testing, I usually build the game and upload it to itch.io to make sure that everything is working. This takes a minute or two every time and is a bit repetitive and annoying. So, instead, this handy little package promises to allow multiple instances of the game, making these steps redundant.
+After importing this tool, the prototype became immediately unusable, because importing it disables http connections entirely in a Unity user config. Imagine my joy upon discovering that  after removing the problem initially persisted.
 I suppose, knowing now that my multiplayer framework requires this to send out some pings to their servers, I could disable the disabling, however, after trying to make sense of this for two nights, I wasn't really feeling very experimental anymore.
 
 ![Picture illustrating my workflow](https://live.staticflickr.com/65535/54753285619_a719659f6e_b.jpg)
