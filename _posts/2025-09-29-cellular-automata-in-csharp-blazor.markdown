@@ -9,7 +9,7 @@ Unfortunately, I have already maxed out the amount of tolerance I can expect fro
 
 [![Game of Life](/images/cellular_581a683bf9a911.gif)](https://lemonspurple.github.io/cellularLife_blazor/)
 
-The main challenge for me was wrapping my head around how to render the output properly and how to navigate some common pitfalls, which you can read [all about here](https://lemonspurple.github.io/info/) in a bit more detail.  
+The main challenge for me was wrapping my head around how to render the output properly and how to navigate some common pitfalls, which you can read [all about here](https://lemonspurple.github.io/cellularLife_blazor/info) in a bit more detail.  
 While I still feel not as versed as I wish to be and rely on tutorials (I never did a cellular automata, this is to be expected but eh..), I felt pretty victorious when I fixed an out-of-range-exception that was caused by injecting new coordinates while the drawing process was running. All I really had to do, was write a little function that holds these values and returns them between the pausing of the game and start (i.e. when the user presses refresh). Coming up with that solution just from debug logs without googling or using ChatGPT was pretty cool; not gonna lie.
   
 <br>
