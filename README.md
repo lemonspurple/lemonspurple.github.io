@@ -1,1 +1,1 @@
-Test for github profile thingy
+Personal blog made with Jekyll.
