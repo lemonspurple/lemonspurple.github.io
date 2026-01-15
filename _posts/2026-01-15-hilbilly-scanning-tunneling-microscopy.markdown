@@ -9,7 +9,7 @@ Recently I dedicated a week of my vacation (plus some additional nights) to buil
 [![My prototype](/images/stm_topview.jpg)](/images/stm_topview.jpg)<br>
 Batteries are removed, because I don't trust my own soldering skills.
 
-As [STMs](https://en.wikipedia.org/wiki/Scanning_tunneling_microscope) are well documented already and a stretch goal of mine is writing a full recollection of how I approached it, I won't go as much into as much detail in this blog post. If you're totally unfamiliar with the technology, you can imagine it as a tactile microscope, although it never touches the subject, but barely makes contact which enables a phenomenon called [quantum tunneling](https://en.wikipedia.org/wiki/Quantum_tunnelling). This allows the probe to measure heights on an atomic level.
+As [STMs](https://en.wikipedia.org/wiki/Scanning_tunneling_microscope) are well documented already and a stretch goal of mine is writing a full recollection of how I approached my build, I won't go as much into detail in this blog post. If you're totally unfamiliar with the technology, you can basically imagine it as a tactile microscope, although it never touches the subject, but barely makes contact which enables a phenomenon called [quantum tunneling](https://en.wikipedia.org/wiki/Quantum_tunnelling). This allows the probe to measure heights on an atomic level.
 
 [![One of my first succesfull readings](/images/stm_reading_1.jpg)](/images/stm_reading_1.jpg)<br>
 First succesful tunneling attempt.
@@ -27,4 +27,4 @@ Also, the conclusion occurred to me, that I found it easier to build a scanning 
 Some additional thanks:<br>
 Peter Dirnhofer & Lennard Grawe for knowledge transfer. 
  K. and E. from Chaos Compute Club Cologne for teaching/helping me to cut threads for screws.
- unneling Amp based on design by Jost Herkenhoff.
+ Tunneling Amp based on design by Jost Herkenhoff.
