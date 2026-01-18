@@ -25,16 +25,17 @@
 	        	<a class="nav-item" href="{{ node.url }}">
 	            	➤ {{ node.title }}
 	            </a>
-	        </li>
+	      {% endif %}
+	    {% endif %}
+	  {% endfor %}
+
+	  	        </li>
+			<li class="nav-title" style="margin-top: 15px;">Links</li>
 			<li><a class="nav-item" href="https://github.com/lemonspurple">➤ GitHub</a></li>
 			<li><a class="nav-item" rel="me" href="https://mastodon.social/@lemonspurple">➤ Mastodon</a></li>
 			<li><a class="nav-item" href="https://www.flickr.com/photos/203446414@N06/">➤ Flickr</a></li>
 			<li><a class="nav-item" href="https://www.goodreads.com/user/show/173874890-72">➤ Goodreads</a></li>
 			<li><a class="nav-item" href="mailto:leozwindrecht@outlook.com">➤ E-Mail</a></li>
-			
-	      {% endif %}
-	    {% endif %}
-	  {% endfor %}
 
 	  <li class="nav-title" style="margin-top: 15px;">Friends</li>
 			<li><a class="nav-item" href="https://zarlev.tumblr.com/">➤ Zarlev</a></li>
