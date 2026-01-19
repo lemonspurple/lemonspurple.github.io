@@ -4,6 +4,8 @@ title: STM Guide
 permalink: /stm/
 ---
 
+Work In Progress (19.01.2026)
+
 
 <details>
   <summary><strong>Bill of Materials (BOM)</strong></summary>
