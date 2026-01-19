@@ -137,9 +137,9 @@ Work In Progress (19.01.2026)
 <summary><strong>Credits / Sources / Thanks</strong></summary>
 <ul>
 <li><h2>Credits / Sources</h2></li>
-<li>Piezo STM based on John Alexander and Dan Berard</li>
+<li>Piezo based STM design derived from John Alexander and Dan Berard</li>
 <li>Tunneling-Amp based on Jost Herkenhoff design</li>
-<li>Final KiCad for Tunneling-Amp Controller-Board, Software by Peter Dirnhofer</li>
+<li>Gerber files for Tunneling-Amp Controller-Board, Software by Peter Dirnhofer</li>
 </ul><ul>
 <li><h2>Additional Thanks</h2></li>
 <li>Chaos Computer Club Cologne for lending me standing drill.</li>
