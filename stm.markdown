@@ -142,7 +142,7 @@ Work In Progress (19.01.2026)
 <li>Gerber files for Tunneling-Amp Controller-Board, Software by Peter Dirnhofer</li>
 </ul><ul>
 <li><h2>Additional Thanks</h2></li>
-<li>Chaos Computer Club Cologne for lending me standing drill.</li>
+<li>Chaos Computer Club Cologne for lending me their standing drill.</li>
 <li>Kadse from CCCC for instructions on how to thread screws.</li>
 <li>Lennart Grawe for additional knowledge transfer.</li>
 </ul>
