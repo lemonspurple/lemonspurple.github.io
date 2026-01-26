@@ -4,7 +4,7 @@ title:  "Hillbilly Scanning Tunneling Microscopy"
 date:   2026-01-15 00:10:04 +0200
 categories: projects update 
 ---
-Recently I dedicated a week of my vacation (plus some additional nights) to building my own scanning tunneling microscope. Since I stumbled upon [John Alexander's](https://john-alexander42.github.io/simple-stm-web-page/Disk_Scanner_Exp.htm) solution of utilizing a simple piezo disk (you know, the little buzzer you find in greeting cards that play a melody) to mount the scanning tip that was later especially popularized by [Dan Berard](https://dberard.com/home-built-stm/), the idea grew on me.
+Recently I dedicated a week of my vacation (plus some additional nights) to building my own scanning tunneling microscope. Since I stumbled upon [John Alexander's](https://john-alexander42.github.io/simple-stm-web-page/Disk_Scanner_Exp.htm) solution of utilizing a simple piezo disk (fire alarms and greeting cards use them to produce sound) to mount and operate the scanning tip that was later especially popularized by [Dan Berard](https://dberard.com/home-built-stm/), the idea grew on me.
 
 [![My prototype](/images/stm_topview.jpg)](/images/stm_topview.jpg)<br>
 Batteries are removed, because I don't trust my own soldering skills.
