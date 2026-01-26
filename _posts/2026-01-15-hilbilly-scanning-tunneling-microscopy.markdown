@@ -27,4 +27,4 @@ Also, the conclusion occurred to me, that I found it easier to build a scanning 
 Some additional thanks:<br>
 Peter Dirnhofer & Lennard Grawe for knowledge transfer. 
  I. and kadse from Chaos Compute Club Cologne for teaching/helping me to cut threads for screws.
- Tunneling Amp based on design by Jost Herkenhoff.
+ Tunneling Amp based on design by Jost Herkenhoff. Also Thor for gifting me my first soldering iron.
