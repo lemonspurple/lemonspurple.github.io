@@ -15,7 +15,7 @@ As [STMs](https://en.wikipedia.org/wiki/Scanning_tunneling_microscope) are well 
 First succesful tunneling attempt.
 
 One of the biggest challenges for me, was certainly the scattered and sometimes incomplete or contradictory documentation. Hence, my apparatus is largely based upon a combination of instructions by Berard, Alexander, the Walla Walla University and sources from the University of Regensburg.<br>
-The latter holds my eternal gratitude, as they provided instructions for firmware and printing my own circuit boards.<br>
+The latter holds my eternal gratitude, as they provided sources for firmware and printing my own circuit boards.<br>
 
 [![Grid structure of a graphene sample](/images/stm_scan2.jpg)](/images/stm_scan2.jpg)<br>
 [Grid structure of graphene (terrace)](https://www.google.com/search?udm=2&q=stm+graphene&dpr=1&aic=0). For comparison: a human hair is 50,000 - 10,000 nanometers thick. The atoms you can see span roughly 2nm.<br>
