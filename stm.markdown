@@ -6,7 +6,7 @@ permalink: /stm/
 ![Image of the STM](https://raw.githubusercontent.com/lemonspurple/DIY-Scanning-Tunneling-Microscope/main/images/header.jpg)
 
 A while ago I built an own [scanning tunneling microscope](https://lemonspurple.github.io/projects/update/2026/01/14/hilbilly-scanning-tunneling-microscopy.html). One of the biggest challenges was to gather and understand scatterd documentation and to find the right parts (both hard- and software).  
-To preserver this knowledge and make this technology more accessible I created a guides which can be accessed here:
+To preserver this knowledge and make this technology more accessible I created a guide which can be accessed here:
 
 - GitHub repo: [https://github.com/lemonspurple/DIY-Scanning-Tunneling-Microscope](https://github.com/lemonspurple/DIY-Scanning-Tunneling-Microscope)  
 - Codeberg mirror: [https://codeberg.org/lemonspurple/DIY-Scanning-Tunneling-Microscope](https://codeberg.org/lemonspurple/DIY-Scanning-Tunneling-Microscope)
