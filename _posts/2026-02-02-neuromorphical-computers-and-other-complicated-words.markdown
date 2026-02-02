@@ -34,6 +34,7 @@ For me, the most interesting aspect of these thoughts are the questions they rai
 - Is the world of chances (such as in quantum computing) applicable to our brains thought process, such as in the spontaneus generation of ideas?
 - Is intentionality scalable? In other words, is it a trait of a thing, a system or group?
 - Can intentionality even be discovered in a binary capacity or are there gradients of intentionality?
+- In the realm of comparability between entities holding intentionality, are there things, groups or systems that are incompatible, because of their different intentionalities? 
 - Can intentionality be understood in a true/false context and does Searle ultimatively, potentially confuse intentionality as intrinsic instead of interpreted features?
 - How can Infected Mushrooms release such a [banger of an album out of nowhere](https://soundcloud.com/monstercat/infected-mushroom-ai-therapist-6).
 
