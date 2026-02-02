@@ -29,7 +29,7 @@ Circling back to intentionality, we certainly find many barriers in understandin
 
 For me, the most interesting aspect of these thoughts are the questions they raise:
 
-- If intentionality is theoretically possible in all systems architectures, how does it differ from binary, neuromorphical and quantum computing? Are many different kinds of intentionality?
+- If intentionality is theoretically possible in all systems architectures, how does it differ from binary, neuromorphical and quantum computing? Are there many different kinds of intentionality?
 - What if we were to combine aspects of both, such as the aspect of shortcuts in spiking with the power of quantum computing?
 - Is the world of chances (such as in quantum computing) applicable to our brains thought process, such as in the spontaneus generation of ideas?
 - Is intentionality scalable? In other words, is it a trait of a thing, a system or group?
