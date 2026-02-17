@@ -1,6 +1,6 @@
 ---
 layout: page
-title: DIY-STM Guide
+title: DIY-STM
 permalink: /stm/
 ---
 ![Image of the STM](https://raw.githubusercontent.com/lemonspurple/DIY-Scanning-Tunneling-Microscope/main/images/header.jpg)
