@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Incompatibilism in Regensburg"
-date:   2026-02-02 00:10:04 +0200
+date:   2026-02-27 00:10:04 +0200
 categories: update AI
 ---
 Recently, I visited Regensburg after some physicists invited me over to check out their [University](https://en.wikipedia.org/wiki/University_of_Regensburg) and to talk a bit about microscopy. While we got along pretty well, I think, I don't know off the top of my head if they're cool with being named here, which is why I sound a bit like a [Dürrenmatt](https://en.wikipedia.org/wiki/The_Physicists) book.  
