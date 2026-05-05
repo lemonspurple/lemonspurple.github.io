@@ -1,3 +1,19 @@
+:root {
+  --paper-bg: #f7f7f9;           /* neutral hell-grau statt Pergament */
+  --paper-edge: #d8d8e0;         /* neutraler Border */
+  --headline: #5b21b6;           /* Lila Überschriften */
+  --subheadline: #7c3aed;        /* helleres Lila für H2 */
+  --link: #7c3aed;               /* Lila Links */
+  --vlink: #5b21b6;              /* dunkleres Lila für besuchte Links */
+  --rule: #c4b5fd;               /* sanftes Lila für Trennlinien */
+  --sidebar-bg: #f0f0f5;         /* neutral grau-lila Sidebar */
+  --sidebar-border: #c4b5fd;     /* lila Sidebar-Border */
+  --text-main: #1f1f2e;          /* fast-schwarz, neutral */
+  --muted: #6b7280;              /* neutrales Grau für Meta-Text */
+  --accent: #7c3aed;             /* Lila Akzent */
+  --brand: #7c3aed;              /* Lila Brand */
+}
+
 /**
  * Reset some basic elements
  */
@@ -252,3 +268,5 @@ table {
     border: 1px solid $grey-color-light;
   }
 }
+
+$brand-color: #7c3aed !default;  /* war: #2a7ae2 (blau) */

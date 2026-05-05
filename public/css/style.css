@@ -2,19 +2,19 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald|Kulim+Park|Nanum+Myeongjo|Nanum+Gothic|Noto+Sans|Noto+Sans+KR|Roboto&display=swap');
 
 :root {
-  --paper-bg: #fdf7e3;
-  --paper-edge: #d5c7a5;
-  --headline: #4b2c82;
-  --subheadline: #7d629e;
-  --link: #0000ff;
-  --vlink: #aa0000;
-  --rule: #b00000;
-  --sidebar-bg: #f8efd2;
-  --sidebar-border: #c49c56;
-  --text-main: #222222;
-  --muted: #6b6250;
-  --accent: #ffe066;
-  --brand: #6f4bff;
+  --paper-bg: #f2ecff;
+  --paper-edge: #d8d8e0;
+  --headline: #5b21b6;
+  --subheadline: #7c3aed;
+  --link: #7c3aed;
+  --vlink: #5b21b6;
+  --rule: #c4b5fd;
+  --sidebar-bg: #f2ecff;
+  --sidebar-border: #c4b5fd;
+  --text-main: #1f1f2e;
+  --muted: #6b7280;
+  --accent: #7c3aed;
+  --brand: #7c3aed;
 }
 
 * {
@@ -30,13 +30,10 @@ html, body {
 body {
   font-family: "Nanum Myeongjo", "Times New Roman", serif;
   background-color: var(--paper-bg);
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.02) 0,
-    rgba(0,0,0,0.02) 1px,
-    transparent 1px,
-    transparent 4px
-  );
+  background-image: url("/images/bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   color: var(--text-main);
 }
 
@@ -67,11 +64,12 @@ img {
   padding: 12px 20px 12px 20px;
   border-left: 1px solid var(--paper-edge);
   border-right: 1px solid var(--paper-edge);
+  background-color: var(--paper-bg);
 }
 
 .sidebar {
   flex: 0 0 140px;
-  border: 1px solid var(--sidebar-border);
+  border: 0px solid var(--sidebar-border);
   font-size: 0.78rem;
   line-height: 1.5;
   background-color: var(--sidebar-bg);
@@ -242,3 +240,4 @@ footer a {
     padding-left: 0;
   }
 }
+
