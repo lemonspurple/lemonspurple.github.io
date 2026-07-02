@@ -4,7 +4,7 @@ title:  "Compiling DNA: Does Intentionality Require An Interpreter?"
 date:   2026-04-22 00:10:04 +0200
 categories: update AI
 ---
-As empathic beings a skill we all more or less have is to put ourselves into the shoes others, to interpret things. Evolutionary, it simply is a beneficiary trait to interpret what a potential partner might find desirable or if an animal might like or dislike something, is angry or calm. To guess how their inner work might work, we could argue.  
+As empathic beings, a skill we all more or less have is to put ourselves into the shoes others, to interpret things. Evolutionary, it simply is a beneficiary trait to interpret what a potential partner might find desirable or if an animal might like or dislike something, is angry or calm. To guess how their inner work might work, we could argue.  
 A trait that we, however, never required to have in any capacity, is to reliably detect the complete absence of concioussness, intelligence; or any shape or form of inner world. Why would we need that in the context of hunter and gatherers?
 
 Nagel already wrote in his essay '[What is it like to be a bat?](https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/nagel_bat.pdf)' that "... philosophers share the general human weakness for explanations of what is incomprehensible in terms suited for what is familiar and well understood, though entirely different." Some might compare this to Searle, who would perhaps extrapolate that we can't simply transfer the concept of a combustion engine made out of metal into one made from wood and expect it to run just as good.
