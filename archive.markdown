@@ -18,6 +18,7 @@ Kept only for future personal reference.*
 
 | Project / Link | Date |
 |---------------|------|
+| [Mutate Binary](https://github.com/lemonspurple/mutateBinary) | **2026-06-02** | [Blogpost](https://lemonspurple.github.io/update/ai/2026/04/21/compiling-dna-does-intentionality-require-an-interpreter.html) |
 | [Scanning Tunneling Microscope](https://lemonspurple.github.io/projects/update/2026/01/14/hilbilly-scanning-tunneling-microscopy.html) | **2026-01-14** |
 
 ---
