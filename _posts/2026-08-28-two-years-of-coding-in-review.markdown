@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Two Years Of Coding In Review (+GamesCon,FrOSCon)"
+title:  "Two Years Of Coding In Review (+Gamescom,FrOSCon)"
 date:   2026-08-28 00:10:04 +0200
 categories: update
 ---
