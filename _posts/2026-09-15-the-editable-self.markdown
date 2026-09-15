@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Editable Self"
-date:   2026-09-25 00:10:04 +0200
+date:   2026-09-15 00:10:04 +0200
 categories: AI update
 ---
 When researching intentionality in relation to artificial intellgence [(or writing about it here)](https://lemonspurple.github.io/update/ai/2026/04/21/compiling-dna-does-intentionality-require-an-interpreter.html), I analyze my findings or hypotheses from the lense of our human perception and reality. The effect of seeking and comparing qualities under this premisse, has the implication that we sometimes interpret features into AI or compare them with something that seem similar, but isn't (Nagel/Searle). However, even before any anthropomorphizing can happen, we seem to introduce another bias into the eqation, which is that AI is on a way to become more like humans or to potentially surpass us (AGI). However, what if we exclude this bias from our assumption? What if we were to invert this argument and consider, if humans will become more similar to AI than the other way around? When toying with the idea that humans will sometime have the interfaces and means to edit their own neurological processes or personality, I always arrive at the conclusion, that we will optimize ourselves towards a being that is very similar to AI. In what follows I will try to explain how I arrive at this conclusion and what indicators I see. 
